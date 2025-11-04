@@ -2,6 +2,7 @@
 
 A hybrid semi-emulated, semi-native Windows kernel driver emulator designed for advanced rootkit and anti-cheat analysis, addressing the limitations of existing emulation solutions.
 
+
 ## Conference
 This project have been accept by CODEBLUE 2025
 
@@ -71,6 +72,13 @@ KDemu/
 └── KDemu.sln              # Visual Studio solution
 ```
 
+## Note
+For someone who want to analyze EAC, it will exit by triple fault because of unicorn can't handle divide-by-zero exception https://github.com/unicorn-engine/unicorn/issues/1883
+
+So when cause error you should clone the unicorn object and restart to reset the fault value.
+
+For Nexon Driver it will scan bootloader but our dump lack of bootloader's memory :(
+
 ## Author
 ShallowFeather & HeroBurger
 
@@ -83,6 +91,6 @@ ShallowFeather & HeroBurger
 - [kdmp-parser](https://github.com/0vercl0k/kdmp-parser) - Kernel dump parsing
 
 ### Research References
-- [**KACE (Kernel AntiCheat Emulator)**]("https://github.com/waryas/KACE") - Inspiration for user-mode to kernel-mode mapping
-- [**What The Fuzz**]("https://github.com/0vercl0k/wtf) - Kernel dump utilization concepts
+- [**KACE (Kernel AntiCheat Emulator)**](https://github.com/waryas/KACE) - Inspiration for user-mode to kernel-mode mapping
+- [**What The Fuzz**](https://github.com/0vercl0k/wtf) - Kernel dump utilization concepts
 - **Speakeasy & Qiling** - Object monitoring and API emulation approaches
